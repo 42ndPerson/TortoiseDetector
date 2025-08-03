@@ -7,6 +7,7 @@ import os
 import random
 
 # Settings
+SRC_DIR = '/Volumes/Tortoise'
 SAMPLE_INTERVAL = 15 # Seconds
 SAVE_TRAINING_DATA = False
 PREVIEW_FRAMES = False
@@ -19,7 +20,7 @@ def get_all_files_os_walk(root_folder):
             file_names.append(os.path.join(dirpath, filename))
     return file_names
     
-all_files = get_all_files_os_walk('/Volumes/Tortoise')[224:524]
+all_files = get_all_files_os_walk(SRC_DIR)
 #all_files = list(filter(lambda s: 'cam2/cam2-capture-00000001' in s, all_files))#[:20]
 print("File Count: " + str(len(all_files)))
 # Good Test Files: '20250624-204002/cam3-capture-00000009', '20250624-204002/cam3-capture-00000012', 'cam2/cam2-capture-00000001'
