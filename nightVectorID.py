@@ -29,7 +29,9 @@ plant_only_cam_vid_paths = {
 }
 
 # Model Setup
-model, _, preprocess = open_clip.create_model_and_transforms('ViT-B-32', pretrained='laion2b_s34b_b79k')
+model_name = 'PE-Core-bigG-14-448'#'ViT-g-14'#'ViT-B-32'
+checkpoint_name = 'meta'#'laion2b_s34b_b88k'#'laion2b_s34b_b79k'
+model, _, preprocess = open_clip.create_model_and_transforms(model_name, pretrained=checkpoint_name)
 model.eval()  # model in train mode by default, impacts some models with BatchNorm or stochastic depth active
 
 def get_embd_vec_for_file(file):
@@ -89,4 +91,4 @@ avg_night /= 5
 print("Avg Norm: ", torch.linalg.vector_norm(avg_night))
 print("Avg Similarity: ", torch.nn.functional.cosine_similarity(avg_night, night_vecs['cam4'], dim=-1))
 
-torch.save(avg_night, 'Average Night Vector.pt')
+torch.save(avg_night, f'Average Night Vector ({model_name}).pt')
