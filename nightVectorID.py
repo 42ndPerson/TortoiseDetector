@@ -7,24 +7,24 @@ import os
 
 plant_only_cam_vid_paths = {
     'cam1': {
-        'day': '/Volumes/Tortise/cam1/cam1-capture-00000000.mp4',
-        'night': '/Volumes/Tortise/cam1/cam1-capture-00000004.mp4'
+        'day': '/Volumes/Tortoise/cam1/cam1-capture-00000000.mp4',
+        'night': '/Volumes/Tortoise/cam1/cam1-capture-00000004.mp4'
     },
     'cam2': {
-        'day': '/Volumes/Tortise/cam2/cam2-capture-00000001.mp4',
-        'night': '/Volumes/Tortise/cam2/cam2-capture-00000002.mp4'
+        'day': '/Volumes/Tortoise/cam2/cam2-capture-00000001.mp4',
+        'night': '/Volumes/Tortoise/cam2/cam2-capture-00000002.mp4'
     },
     'cam3': {
-        'day': '/Volumes/Tortise/cam3/20250625-075235/cam3-capture-00000000.mp4',
-        'night': '/Volumes/Tortise/cam3/20250625-075235/cam3-capture-00000026.mp4'
+        'day': '/Volumes/Tortoise/cam3/20250625-075235/cam3-capture-00000000.mp4',
+        'night': '/Volumes/Tortoise/cam3/20250625-075235/cam3-capture-00000026.mp4'
     },
     'cam4': {
-        'day': '/Volumes/Tortise/cam4/cam4-capture-00000000.mp4',
-        'night': '/Volumes/Tortise/cam4/cam4-capture-00000017.mp4'
+        'day': '/Volumes/Tortoise/cam4/cam4-capture-00000000.mp4',
+        'night': '/Volumes/Tortoise/cam4/cam4-capture-00000017.mp4'
     },
     'cam6': {
-        'day': '/Volumes/Tortise/cam6/cam6-capture-00000000.mp4',
-        'night': '/Volumes/Tortise/cam6/cam6-capture-00000017.mp4'
+        'day': '/Volumes/Tortoise/cam6/cam6-capture-00000000.mp4',
+        'night': '/Volumes/Tortoise/cam6/cam6-capture-00000017.mp4'
     },
 }
 

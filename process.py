@@ -8,7 +8,7 @@ import random
 
 # Settings
 SAMPLE_INTERVAL = 15 # Seconds
-SAVE_TRAINING_DATA = True
+SAVE_TRAINING_DATA = False
 PREVIEW_FRAMES = False
 
 # File Search
@@ -19,7 +19,7 @@ def get_all_files_os_walk(root_folder):
             file_names.append(os.path.join(dirpath, filename))
     return file_names
     
-all_files = get_all_files_os_walk('/Volumes/Tortise')[224:524]
+all_files = get_all_files_os_walk('/Volumes/Tortoise')[224:524]
 #all_files = list(filter(lambda s: 'cam2/cam2-capture-00000001' in s, all_files))#[:20]
 print("File Count: " + str(len(all_files)))
 # Good Test Files: '20250624-204002/cam3-capture-00000009', '20250624-204002/cam3-capture-00000012', 'cam2/cam2-capture-00000001'
@@ -41,7 +41,7 @@ model, _, preprocess = open_clip.create_model_and_transforms(model_name, pretrai
 model.eval()  # model in train mode by default, impacts some models with BatchNorm or stochastic depth active
 tokenizer = open_clip.get_tokenizer(model_name)
 day_night_text = tokenizer(["day", "night vision"]).to(device)
-target_text = tokenizer(["empty desert (plants)", "tortise"]).to(device)
+target_text = tokenizer(["empty desert (plants)", "tortoise"]).to(device)
 
 # Retrieve Night Vector
 enable_night_correction = False
@@ -125,7 +125,7 @@ for file in all_files:
                 if target_text_probs[0][1] > target_text_probs[0][0]:
                     records.append((time_secs, day_or_night))
                     if SAVE_TRAINING_DATA:
-                        save_dir = os.path.join('TortiseImages', day_or_night)
+                        save_dir = os.path.join('TortoiseImages', day_or_night)
                         os.makedirs(save_dir, exist_ok=True)
                         path = os.path.join(save_dir, f'{os.path.basename(file)}_{min:02.0f}-{sec:02.0f}.png')
                         cv2.imwrite(path, crop_frame)
@@ -142,7 +142,7 @@ for file in all_files:
             cv2.destroyAllWindows()
         
         # Save File
-        with open('tortise_sightings.txt', 'a') as out_file:
+        with open('tortoise_sightings.txt', 'a') as out_file:
             out_file.write('\n\n' + file + ':')
             for (time_secs, dn) in records:
                 min = time_secs // 60
