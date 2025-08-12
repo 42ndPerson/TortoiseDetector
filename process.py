@@ -36,7 +36,7 @@ else:
 device = torch.device(torch_acc_code)
 
 # Model Setup
-model_name = 'PE-Core-bigG-14-448'
+model_name = 'PE-Core-S-16-384'#'PE-Core-bigG-14-448'
 checkpoint_name = 'meta'
 model, _, preprocess = open_clip.create_model_and_transforms(model_name, pretrained=checkpoint_name, device=device)
 model.eval()  # model in train mode by default, impacts some models with BatchNorm or stochastic depth active
@@ -46,7 +46,8 @@ target_text = tokenizer(["empty desert (plants)", "tortoise"]).to(device)
 
 # Retrieve Night Vector
 enable_night_correction = False
-night_vec = torch.load(f'Average Night Vector ({model_name}).pt').to(device)
+if enable_night_correction:
+    night_vec = torch.load(f'Average Night Vector ({model_name}).pt').to(device)
 
 # Process Videos
 for file in all_files:
